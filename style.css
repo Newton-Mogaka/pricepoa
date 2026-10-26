@@ -390,7 +390,7 @@ h1.headline .chalk-underline svg{
 section{position:relative;z-index:1;padding:80px 0;}
 .section-head{max-width:620px;margin-bottom:48px;}
 .kicker{
-  font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;
+  font-family:'Plus Jakarta Sans',sans-serif;font: size 5rem;font-weight:700;
   letter-spacing:0.5em;text-transform:uppercase;color:var(--mango);
   margin-bottom:12px;display:block;
 }
