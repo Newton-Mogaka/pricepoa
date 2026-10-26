@@ -49,7 +49,7 @@ body{
   margin:0;
   background:var(--ink);
   color:var(--chalk);
-  font-family:'Inter',sans-serif;
+  font-family:'Plus Jakarta Sans',sans-serif;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
   line-height:1.6;
@@ -104,7 +104,7 @@ header{
   padding:16px 0;
 }
 .logo{
-  font-family:'Space Grotesk',sans-serif;
+  font-family:'Plus Jakarta Sans',sans-serif;
   font-weight:700;font-size:1.3rem;letter-spacing:-0.01em;
   display:flex;align-items:baseline;gap:6px;
 }
@@ -116,7 +116,7 @@ header{
 .nav-links a:hover{color:var(--chalk);}
 .btn{
   display:inline-flex;align-items:center;gap:8px;
-  font-family:'Space Grotesk',sans-serif;font-weight:600;
+  font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;
   font-size:0.92rem;
   padding:11px 20px;border-radius:999px;
   border:1px solid transparent;
@@ -326,7 +326,7 @@ section{position:relative;z-index:1;padding:80px 0;}
   margin-bottom:12px;display:block;
 }
 h2{
-  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;
   font-size:clamp(1.7rem,3vw,2.3rem);letter-spacing:-0.01em;margin:0 0 14px;
 }
 .section-head p{color:var(--chalk-dim);font-size:1.02rem;line-height:1.6;margin:0;}
@@ -350,7 +350,7 @@ h2{
   font-family:'IBM Plex Mono',monospace;font-size:1.5rem;color:var(--mango);font-weight:600;
 }
 .step h3{
-  font-family:'Space Grotesk',sans-serif;font-size:1.15rem;margin:0 0 6px;font-weight:600;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:1.15rem;margin:0 0 6px;font-weight:600;
 }
 .step p{margin:0;color:var(--chalk-dim);font-size:0.96rem;line-height:1.55;max-width:520px;}
 
@@ -390,7 +390,7 @@ h2{
 .receipt::before{top:-6px;}
 .receipt::after{bottom:-6px;transform:scaleY(-1);}
 .receipt h3{
-  font-family:'Space Grotesk',sans-serif;text-align:center;font-size:1.05rem;
+  font-family:'Plus Jakarta Sans',sans-serif;text-align:center;font-size:1.05rem;
   letter-spacing:0.03em;margin:0 0 2px;
 }
 .receipt .rsub{text-align:center;font-size:0.72rem;color:#555;margin-bottom:18px;letter-spacing:0.04em;}
@@ -402,7 +402,7 @@ h2{
 .stamp{
   margin-top:18px;border:2px solid var(--tomato);color:var(--tomato);
   text-align:center;padding:9px;border-radius:6px;
-  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:0.85rem;
+  font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.85rem;
   transform:rotate(-2deg);letter-spacing:0.03em;
 }
 
@@ -412,7 +412,7 @@ h2{
   background:var(--ink-2);border:1px solid var(--rule);border-radius:var(--radius);
   padding:28px 24px;
 }
-.stat .num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:2.1rem;color:var(--mango); /* use green for stats numbers */}
+.stat .num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:2.1rem;color:var(--mango); /* use green for stats numbers */}
 .stat .label{font-size:0.88rem;color:var(--chalk-dim);margin-top:6px;}
 
 /* Final CTA */
@@ -503,7 +503,7 @@ footer a:hover{color:var(--chalk);}
   width:48px;height:48px;border-radius:50%;
   background:var(--mango);
   display:flex;align-items:center;justify-content:center;
-  font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--background-white);
+  font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;color:var(--background-white);
   margin-bottom:12px;
 }
 .testimonial-text{
@@ -518,7 +518,7 @@ footer a:hover{color:var(--chalk);}
   display:flex;align-items:center;gap:8px;
 }
 .testimonial-author .name{
-  font-family:'Space Grotesk',sans-serif;
+  font-family:'Plus Jakarta Sans',sans-serif;
 }
 .testimonial-author .role{
   font-size:0.85rem;
@@ -538,7 +538,7 @@ footer a:hover{color:var(--chalk);}
   padding:8px 0;
 }
 .faq-question h3{
-  font-family:'Space Grotesk',sans-serif;
+  font-family:'Plus Jakarta Sans',sans-serif;
   font-size:1.1rem;
   font-weight:600;
   margin:0;
@@ -601,7 +601,7 @@ footer a:hover{color:var(--chalk);}
   color:var(--background-white);
   border:none;
   border-radius:6px;
-  font-family:'Space Grotesk',sans-serif;
+  font-family:'Plus Jakarta Sans',sans-serif;
   font-weight:600;
   cursor:pointer;
   transition:background 0.2s ease;
