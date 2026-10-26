@@ -141,56 +141,34 @@ header{
 /* Falling Icons */
 .falling-icon{
   position:absolute;
-  top:-40px;
-  width:28px;height:28px;
+  top:-60px;
+  width:48px;height:48px;
   opacity:0;
   transform:translateY(-100%) rotate(0deg);
-  animation:fall var(--fall-dur, 12s) var(--fall-delay, 0s) linear infinite;
-  filter:drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+  animation:fall var(--fall-dur, 14s) var(--fall-delay, 0s) linear infinite;
+  filter:drop-shadow(0 3px 6px rgba(0,0,0,0.15));
   will-change:transform,opacity;
 }
-.falling-icon:nth-child(1){--fall-delay:0s;--fall-dur:14s;left:8%;}
-.falling-icon:nth-child(2){--fall-delay:1.5s;--fall-dur:13s;left:18%;}
-.falling-icon:nth-child(3){--fall-delay:3s;--fall-dur:15s;left:28%;}
-.falling-icon:nth-child(4){--fall-delay:4.5s;--fall-dur:12s;left:42%;}
-.falling-icon:nth-child(5){--fall-delay:6s;--fall-dur:16s;left:55%;}
-.falling-icon:nth-child(6){--fall-delay:7.5s;--fall-dur:13s;left:68%;}
-.falling-icon:nth-child(7){--fall-delay:9s;--fall-dur:14s;left:80%;}
-.falling-icon:nth-child(8){--fall-delay:10.5s;--fall-dur:12s;left:90%;}
+.falling-icon:nth-child(1){--fall-delay:0s;--fall-dur:16s;left:6%;}
+.falling-icon:nth-child(2){--fall-delay:1.8s;--fall-dur:15s;left:16%;}
+.falling-icon:nth-child(3){--fall-delay:3.6s;--fall-dur:17s;left:26%;}
+.falling-icon:nth-child(4){--fall-delay:5.4s;--fall-dur:14s;left:38%;}
+.falling-icon:nth-child(5){--fall-delay:7.2s;--fall-dur:18s;left:50%;}
+.falling-icon:nth-child(6){--fall-delay:9s;--fall-dur:15s;left:62%;}
+.falling-icon:nth-child(7){--fall-delay:10.8s;--fall-dur:16s;left:74%;}
+.falling-icon:nth-child(8){--fall-delay:12.6s;--fall-dur:14s;left:86%;}
 
 @keyframes fall{
   0%{opacity:0;transform:translateY(-100%) rotate(0deg);}
   10%{opacity:1;}
-  70%{opacity:1;transform:translateY(calc(100% + 40px)) rotate(360deg);}
-  85%{opacity:0.6;transform:translateY(calc(100% + 50px)) rotate(420deg);}
-  100%{opacity:0;transform:translateY(calc(100% + 60px)) rotate(480deg);}
-}
-
-/* Sweep Cart */
-.sweep-cart{
-  position:absolute;
-  bottom:4px;
-  left:-80px;
-  width:72px;height:54px;
-  opacity:0;
-  transform:translateX(0) rotate(0deg);
-  animation:sweep 20s linear infinite;
-  filter:drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-  will-change:transform,opacity;
-  z-index:2;
-}
-
-@keyframes sweep{
-  0%{opacity:0;transform:translateX(-80px) rotate(0deg);}
-  5%{opacity:1;}
-  85%{opacity:1;transform:translateX(calc(100% + 80px)) rotate(720deg);}
-  95%{opacity:0;}
-  100%{opacity:0;transform:translateX(calc(100% + 160px)) rotate(720deg);}
+  70%{opacity:1;transform:translateY(calc(100% + 60px)) rotate(360deg);}
+  85%{opacity:0.5;transform:translateY(calc(100% + 80px)) rotate(420deg);}
+  100%{opacity:0;transform:translateY(calc(100% + 100px)) rotate(480deg);}
 }
 
 /* Reduced Motion */
 @media (prefers-reduced-motion:reduce){
-  .falling-icon,.sweep-cart{animation:none;opacity:0;}
+  .falling-icon{animation:none;opacity:0;}
   header::after{
     content:"";position:absolute;inset:0;z-index:0;
     background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
