@@ -221,7 +221,7 @@ header{
 /* Hero button adjustments for white background */
 .hero .btn-primary{
   background:#2563eb;
-  color:#1e293b;
+  color:#ffffff;
 }
 .hero .btn-primary:hover{
   background:#f8fafc;
