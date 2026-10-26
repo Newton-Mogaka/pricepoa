@@ -8,6 +8,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
+  <!-- Preload hero background images for faster loading -->
+  <link rel="preload" as="image" href="assets/images/woman-shopping-vegetables-supermarket.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/woman-shopping-vegetables-supermarket (1).jpg">
+  <link rel="preload" as="image" href="assets/images/woman-shopping-vegetables-supermarket (2).jpg">
+
   <!-- Trust and Security Meta Tags -->
   <meta name="description" content="PricePoa provides AI-powered price comparison via WhatsApp, enabling users to compare prices across leading supermarkets in Kenya.">
   <meta name="keywords" content="price comparison, supermarket prices, Kenya groceries, WhatsApp price checker, Naivas, Carrefour, Quickmart, Chandarana">
@@ -90,11 +95,11 @@
   </header>
 
   <section class="hero" id="main-content">
-    <!-- Background Image Slider -->
+    <!-- Background Image Slider using <img> tags for better loading control -->
     <div class="hero-bg-slider" aria-hidden="true">
-      <div class="hero-bg-slide active" style="background-image: url('assets/images/woman-shopping-vegetables-supermarket.jpg');"></div>
-      <div class="hero-bg-slide" style="background-image: url('assets/images/woman-shopping-vegetables-supermarket (1).jpg');"></div>
-      <div class="hero-bg-slide" style="background-image: url('assets/images/woman-shopping-vegetables-supermarket (2).jpg');"></div>
+      <img class="hero-bg-slide active" src="assets/images/woman-shopping-vegetables-supermarket.jpg" alt="" fetchpriority="high" width="1920" height="1080">
+      <img class="hero-bg-slide" src="assets/images/woman-shopping-vegetables-supermarket (1).jpg" alt="" loading="lazy" width="1920" height="1080">
+      <img class="hero-bg-slide" src="assets/images/woman-shopping-vegetables-supermarket (2).jpg" alt="" loading="lazy" width="1920" height="1080">
     </div>
     <!-- Dark overlay for text readability -->
     <div class="hero-overlay" aria-hidden="true"></div>
