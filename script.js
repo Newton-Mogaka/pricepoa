@@ -124,3 +124,48 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+// Hero Background Slider
+document.addEventListener('DOMContentLoaded', function() {
+  const slides = document.querySelectorAll('.hero-bg-slide');
+  let currentSlide = 0;
+  const slideInterval = 5000; // 5 seconds per slide
+  const transitionDuration = 1200; // 1.2s transition
+
+  if (slides.length === 0) return;
+
+  function nextSlide() {
+    // Remove active class from current slide
+    slides[currentSlide].classList.remove('active');
+
+    // Move to next slide
+    currentSlide = (currentSlide + 1) % slides.length;
+
+    // Add active class to new slide
+    slides[currentSlide].classList.add('active');
+  }
+
+  // Start the slider
+  let sliderInterval = setInterval(nextSlide, slideInterval);
+
+  // Pause on hover for better UX
+  const heroSection = document.querySelector('.hero');
+  if (heroSection) {
+    heroSection.addEventListener('mouseenter', () => {
+      clearInterval(sliderInterval);
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      sliderInterval = setInterval(nextSlide, slideInterval);
+    });
+  }
+
+  // Handle visibility change (pause when tab is not active)
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      clearInterval(sliderInterval);
+    } else {
+      sliderInterval = setInterval(nextSlide, slideInterval);
+    }
+  });
+});
