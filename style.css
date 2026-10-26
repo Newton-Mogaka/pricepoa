@@ -187,6 +187,59 @@ header{
 .hero-grid{
   display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;
 }
+
+/* Hero text colors - white for visibility over background images */
+.hero .eyebrow{
+  color:var(--mango);
+}
+.hero .eyebrow::before{
+  background:var(--mango);
+  box-shadow:0 0 0 4px rgba(16,185,129,0.15);
+}
+.hero h1.headline{
+  color:#ffffff;
+}
+.hero h1.headline .chalk-underline{
+  color:#ffffff;
+}
+.hero h1.headline .chalk-underline svg path{
+  stroke:#F2A63C;
+}
+.hero .sub{
+  color:rgba(255,255,255,0.9);
+}
+.hero .hero-note{
+  color:rgba(255,255,255,0.7);
+}
+.hero .stat-number{
+  color:#ffffff;
+}
+.hero .stat-label{
+  color:rgba(255,255,255,0.8);
+}
+
+/* Hero button adjustments for white background */
+.hero .btn-primary{
+  background:#ffffff;
+  color:#1e293b;
+}
+.hero .btn-primary:hover{
+  background:#f8fafc;
+  color:#1e293b;
+}
+.hero .btn-primary svg{
+  fill:#1e293b;
+}
+.hero .btn-ghost{
+  border-color:rgba(255,255,255,0.5);
+  color:#ffffff;
+}
+.hero .btn-ghost:hover{
+  border-color:#ffffff;
+  background:rgba(255,255,255,0.15);
+  color:#ffffff;
+}
+
 .eyebrow{
   font-family:'IBM Plex Mono',monospace;
   font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;
@@ -385,10 +438,23 @@ footer a:hover{color:var(--chalk);}
 /* Responsive */
 @media (max-width:860px){
   .hero-grid{grid-template-columns:1fr;}
+  .hero .phone{display:none;} /* Hide phone mockup on mobile */
+  .hero{padding:64px 0 72px;}
+  .hero .hero-note{display:block;margin-top:16px;}
   .stats-grid{grid-template-columns:1fr;}
   .step{grid-template-columns:44px 1fr;padding:20px;}
   .nav-links{display:none;}
   .cta-band{padding:36px 24px;}
+}
+
+@media (max-width:480px){
+  .hero{padding:56px 0 64px;}
+  .hero h1.headline{font-size:clamp(2rem, 8vw, 2.6rem);}
+  .hero .sub{font-size:1rem;}
+  .hero .cta-row{flex-direction:column;align-items:stretch;}
+  .hero .btn{width:100%;justify-content:center;}
+  .hero .hero-stats{gap:16px;}
+  .hero .stat-item{text-align:center;}
 }
 
 /* Accessibility enhancements */
