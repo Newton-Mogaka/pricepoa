@@ -409,6 +409,7 @@ h2{
   background:var(--background-light);
   text-align:center;
   min-height:600px;
+  color:#ffffff;
 }
 
 /* How section background image container */
@@ -426,19 +427,19 @@ h2{
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
-  opacity:0.55;
+  opacity:1;
 }
 
-/* Dark overlay for text readability over background */
+/* Dark overlay for text readability over background (matches hero) */
 .how-overlay{
   position:absolute;
   inset:0;
   z-index:1;
   background:linear-gradient(
     135deg,
-    rgba(15,23,42,0.45) 0%,
-    rgba(15,23,42,0.25) 50%,
-    rgba(15,23,42,0.35) 100%
+    rgba(15,23,42,0.75) 0%,
+    rgba(15,23,42,0.55) 50%,
+    rgba(15,23,42,0.65) 100%
   );
 }
 
@@ -451,6 +452,26 @@ h2{
   margin-bottom:60px;
   max-width:100%;
 }
+
+/* White text for hero-style readability */
+#how .kicker{color:#F2A63C;}
+#how .kicker::before{background:#F2A63C;box-shadow:0 0 0 4px rgba(242,166,60,0.25);}
+#how h2{color:#ffffff;}
+#how .section-head p{color:rgba(255,255,255,0.85);}
+#how .card-badge{color:#F2A63C;}
+#how .card-content h3{color:#ffffff;}
+#how .card-content p{color:rgba(255,255,255,0.85);}
+#how .card-details li{color:rgba(255,255,255,0.8);}
+#how .card-details li::before{background:#F2A63C;}
+.step-1 .card-details li::before{background:#2563EB;}
+.step-2 .card-details li::before{background:#10B981;}
+.step-3 .card-details li::before{background:#F2A63C;}
+.step-1 .card-icon{background:rgba(37,99,235,0.15);}
+.step-2 .card-icon{background:rgba(16,185,129,0.15);}
+.step-3 .card-icon{background:rgba(242,166,60,0.15);}
+.step-1 .card-icon svg{color:#60A5FA;}
+.step-2 .card-icon svg{color:#34D399;}
+.step-3 .card-icon svg{color:#F2A63C;}
 
 .how-flow{
   display:flex;
