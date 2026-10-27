@@ -407,6 +407,7 @@ h2{
   position:relative;
   overflow:visible;
   background:var(--background-light);
+  text-align:center;
 }
 
 /* How section background image */
@@ -443,6 +444,7 @@ h2{
 }
 #how .section-head{
   margin-bottom:60px;
+  max-width:100%;
 }
 
 .how-flow{
