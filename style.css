@@ -617,40 +617,6 @@ h2{
 .step-2 .card-details li::before{background:var(--mango);}
 .step-3 .card-details li::before{background:var(--header-yellow-dark);}
 
-/* Connector arrows between cards */
-.card-connector{
-  position:absolute;
-  right:-12px;
-  top:50%;
-  transform:translateY(-50%);
-  width:24px;
-  height:24px;
-  pointer-events:none;
-}
-.card-connector::before,
-.card-connector::after{
-  content:"";
-  position:absolute;
-  background:var(--rule);
-  border-radius:2px;
-}
-.card-connector::before{
-  width:28px;
-  height:2px;
-  top:50%;
-  left:0;
-  transform:translateY(-50%);
-  background:linear-gradient(90deg, var(--rule), var(--chalk-dim));
-}
-.card-connector::after{
-  width:0;
-  height:0;
-  border:6px solid transparent;
-  border-left-color:var(--chalk-dim);
-  right:0;
-  top:50%;
-  transform:translateY(-50%);
-}
 
 /* Reduced motion */
 @media (prefers-reduced-motion:reduce){
