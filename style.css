@@ -391,7 +391,7 @@ section{position:relative;z-index:1;padding:80px 0;}
 .section-head{max-width:620px;margin-bottom:48px;}
 .kicker{
   font-family:'Plus Jakarta Sans',sans-serif;font-size: 1.25rem;font-weight:700;
-  letter-spacing:0.5em;text-transform:uppercase;color:var(--mango);
+  letter-spacing:0.5em;text-transform:uppercase;color:var( --background-white);
   margin-bottom:12px;display:block;
 }
 h2{
