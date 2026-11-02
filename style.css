@@ -1,4 +1,4 @@
-:root{
+﻿:root{
   /* New color scheme: White, Blue, Touch of Green */
   --background-white: #ffffff;
   --background-light: #f8fafc;
@@ -402,7 +402,7 @@ h2{
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
 .reveal.show{opacity:1;transform:translateY(0);}
 
-/* How it works — stair-step infographic flow */
+/* How it works â€” stair-step infographic flow */
 #how{
   position:relative;
   overflow:hidden;
@@ -1261,3 +1261,4 @@ h2{
   margin-top:0;
   color:var(--mango);
 }
+
