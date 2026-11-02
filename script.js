@@ -125,6 +125,67 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+// Footer Navigation Dropdown Toggles (Mobile)
+document.addEventListener('DOMContentLoaded', function() {
+  const toggles = document.querySelectorAll('.nav-column-toggle');
+
+  toggles.forEach(toggle => {
+    const controlsId = toggle.getAttribute('aria-controls');
+    const links = document.getElementById(controlsId);
+
+    if (!links) return;
+
+    toggle.addEventListener('click', function() {
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+      // Close all other open dropdowns
+      document.querySelectorAll('.nav-column-toggle[aria-expanded="true"]').forEach(otherToggle => {
+        if (otherToggle !== this) {
+          otherToggle.setAttribute('aria-expanded', 'false');
+          const otherLinksId = otherToggle.getAttribute('aria-controls');
+          const otherLinks = document.getElementById(otherLinksId);
+          if (otherLinks) {
+            otherLinks.classList.remove('is-open');
+          }
+        }
+      });
+
+      // Toggle current dropdown
+      this.setAttribute('aria-expanded', !isExpanded);
+      links.classList.toggle('is-open');
+    });
+  });
+
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav-column')) {
+      document.querySelectorAll('.nav-column-toggle[aria-expanded="true"]').forEach(toggle => {
+        toggle.setAttribute('aria-expanded', 'false');
+        const linksId = toggle.getAttribute('aria-controls');
+        const links = document.getElementById(linksId);
+        if (links) {
+          links.classList.remove('is-open');
+        }
+      });
+    }
+  });
+
+  // Close dropdowns on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.nav-column-toggle[aria-expanded="true"]').forEach(toggle => {
+        toggle.setAttribute('aria-expanded', 'false');
+        const linksId = toggle.getAttribute('aria-controls');
+        const links = document.getElementById(linksId);
+        if (links) {
+          links.classList.remove('is-open');
+        }
+        toggle.focus();
+      });
+    }
+  });
+});
+
 // Hero Background Slider
 document.addEventListener('DOMContentLoaded', function() {
   const slides = document.querySelectorAll('.hero-bg-slide');
