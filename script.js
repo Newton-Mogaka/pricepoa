@@ -128,31 +128,47 @@ document.addEventListener('DOMContentLoaded', function() {
 // Footer Navigation Dropdown Toggles (Mobile)
 document.addEventListener('DOMContentLoaded', function() {
   const toggles = document.querySelectorAll('.nav-column-toggle');
+  const headers = document.querySelectorAll('.nav-column-header');
 
-  toggles.forEach(toggle => {
+  function toggleDropdown(toggle) {
+    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
     const controlsId = toggle.getAttribute('aria-controls');
     const links = document.getElementById(controlsId);
 
     if (!links) return;
 
-    toggle.addEventListener('click', function() {
-      const isExpanded = this.getAttribute('aria-expanded') === 'true';
-
-      // Close all other open dropdowns
-      document.querySelectorAll('.nav-column-toggle[aria-expanded="true"]').forEach(otherToggle => {
-        if (otherToggle !== this) {
-          otherToggle.setAttribute('aria-expanded', 'false');
-          const otherLinksId = otherToggle.getAttribute('aria-controls');
-          const otherLinks = document.getElementById(otherLinksId);
-          if (otherLinks) {
-            otherLinks.classList.remove('is-open');
-          }
+    // Close all other open dropdowns
+    document.querySelectorAll('.nav-column-toggle[aria-expanded="true"]').forEach(otherToggle => {
+      if (otherToggle !== toggle) {
+        otherToggle.setAttribute('aria-expanded', 'false');
+        const otherLinksId = otherToggle.getAttribute('aria-controls');
+        const otherLinks = document.getElementById(otherLinksId);
+        if (otherLinks) {
+          otherLinks.classList.remove('is-open');
         }
-      });
+      }
+    });
 
-      // Toggle current dropdown
-      this.setAttribute('aria-expanded', !isExpanded);
-      links.classList.toggle('is-open');
+    // Toggle current dropdown
+    toggle.setAttribute('aria-expanded', !isExpanded);
+    links.classList.toggle('is-open');
+  }
+
+  // Toggle via button click
+  toggles.forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      toggleDropdown(this);
+    });
+  });
+
+  // Toggle via header click (mobile only - header is clickable area)
+  headers.forEach(header => {
+    header.addEventListener('click', function() {
+      const toggle = this.querySelector('.nav-column-toggle');
+      if (toggle) {
+        toggleDropdown(toggle);
+      }
     });
   });
 
