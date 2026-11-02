@@ -978,6 +978,97 @@ h2{
   }
 }
 
+/* ========================================
+   MARQUEE STYLES - Retail Partners
+   ======================================== */
+
+.retail-partners-title {
+  color: #000000 !important;
+}
+
+.marquee-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  animation: marquee-scroll 20s linear infinite;
+  will-change: transform;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.brand-logo {
+  height: 80px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.7);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.brand-logo:hover {
+  filter: grayscale(0%) opacity(1);
+  transform: scale(1.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .brand-logo {
+    height: 60px;
+    max-width: 150px;
+  }
+
+  .marquee-track {
+    gap: 24px;
+  }
+
+  @keyframes marquee-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-logo {
+    height: 50px;
+    max-width: 120px;
+  }
+
+  .marquee-track {
+    gap: 16px;
+  }
+}
+
 /* Mobile Dropdown Styles for Footer Navigation */
 @media (max-width:768px){
   .nav-column{
