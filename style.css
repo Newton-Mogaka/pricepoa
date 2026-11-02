@@ -947,14 +947,6 @@ h2{
   transform:translateX(4px);
 }
 
-/* Footer Bottom */
-.footer-bottom{
-  border-top:1px solid rgba(30,41,59,0.15);
-  padding:28px 24px;
-  background:rgba(255,255,255,0.2);
-  backdrop-filter:blur(8px);
-}
-
 
 .footer-copyright{
   font-size:0.85rem;
