@@ -955,22 +955,6 @@ h2{
   backdrop-filter:blur(8px);
 }
 
-.footer-bottom-links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:24px;
-  justify-content:center;
-  margin-bottom:16px;
-}
-
-.footer-bottom-links a{
-  font-size:0.85rem;
-  color:var(--text-medium);
-  transition:color 0.15s ease;
-}
-.footer-bottom-links a:hover{
-  color:var(--text-dark);
-}
 
 .footer-copyright{
   font-size:0.85rem;
