@@ -853,17 +853,11 @@ h2{
   justify-content:center;
   width:40px;
   height:40px;
-  border-radius:50%;
-  background:rgba(255,255,255,0.3);
-  border:1px solid rgba(30,41,59,0.15);
-  color:var(--text-dark);
-  transition:all 0.2s ease;
-  backdrop-filter:blur(8px);
+  color:var(--text-medium);
+  transition:color 0.2s ease, transform 0.2s ease;
 }
 .footer-social a:hover{
-  background:var(--text-dark);
-  border-color:var(--text-dark);
-  color:var(--header-yellow);
+  color:var(--primary-blue);
   transform:translateY(-2px);
 }
 
@@ -884,16 +878,6 @@ h2{
   margin:0 0 20px;
   position:relative;
   padding-bottom:10px;
-}
-.nav-column h4::after{
-  content:"";
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:30px;
-  height:2px;
-  background:var(--header-yellow-dark);
-  border-radius:2px;
 }
 
 .nav-column ul{
@@ -979,10 +963,6 @@ h2{
   }
   .nav-column{
     text-align:center;
-  }
-  .nav-column h4::after{
-    left:50%;
-    transform:translateX(-50%);
   }
 }
 
