@@ -809,19 +809,20 @@ h2{
    NEW FOOTER STYLES (mirrors yfood structure)
    ======================================== */
 .footer{
-  background:var(--background-white);
-  border-top:1px solid var(--rule);
+  background:var(--header-yellow);
+  border-top:3px solid var(--header-yellow-dark);
   padding:0;
   margin-top:auto;
 }
 
 .footer-main{
   display:grid;
-  grid-template-columns: 1.5fr repeat(4, 1fr);
-  gap:60px;
+  grid-template-columns: 1.2fr repeat(4, 1fr);
+  gap:48px;
   padding:64px 24px 48px;
-  max-width:1200px;
+  max-width:1280px;
   margin:0 auto;
+  align-items:start;
 }
 
 /* Brand Section */
@@ -829,7 +830,8 @@ h2{
   display:flex;
   flex-direction:column;
   gap:28px;
-  max-width:360px;
+  min-width:0;
+  padding-right:24px;
 }
 
 .footer-logo{
@@ -839,7 +841,7 @@ h2{
   letter-spacing:-0.02em;
   color:var(--text-dark);
 }
-.footer-logo span{color:var(--mango);}
+.footer-logo span{color:var(--text-dark);}
 
 /* CTA Section */
 .footer-cta{
@@ -856,23 +858,24 @@ h2{
 }
 
 .btn-whatsapp{
-  background:var(--mango);
-  color:var(--background-white);
+  background:var(--text-dark);
+  color:var(--header-yellow);
   border-color:transparent;
   width:fit-content;
+  font-weight:700;
 }
 .btn-whatsapp:hover{
-  background:var(--mango-dark);
+  background:var(--text-medium);
   transform:translateY(-2px);
-  box-shadow:0 8px 20px rgba(16,185,129,0.3);
+  box-shadow:0 8px 20px rgba(30,41,59,0.3);
 }
 
 /* Social Links */
 .footer-social{
   display:flex;
-  gap:14px;
-  padding-top:8px;
-  border-top:1px solid var(--border-light);
+  gap:12px;
+  padding-top:16px;
+  border-top:1px solid rgba(30,41,59,0.15);
 }
 
 .footer-social a{
@@ -882,15 +885,16 @@ h2{
   width:40px;
   height:40px;
   border-radius:50%;
-  background:var(--background-light);
-  border:1px solid var(--border-light);
-  color:var(--text-medium);
+  background:rgba(255,255,255,0.3);
+  border:1px solid rgba(30,41,59,0.15);
+  color:var(--text-dark);
   transition:all 0.2s ease;
+  backdrop-filter:blur(8px);
 }
 .footer-social a:hover{
-  background:var(--mango);
-  border-color:var(--mango);
-  color:var(--background-white);
+  background:var(--text-dark);
+  border-color:var(--text-dark);
+  color:var(--header-yellow);
   transform:translateY(-2px);
 }
 
@@ -898,17 +902,29 @@ h2{
 .footer-nav{
   display:grid;
   grid-template-columns:repeat(4, 1fr);
-  gap:40px;
+  gap:32px;
 }
 
 .nav-column h4{
   font-family:'Plus Jakarta Sans',sans-serif;
-  font-weight:600;
-  font-size:0.85rem;
-  letter-spacing:0.05em;
+  font-weight:700;
+  font-size:0.8rem;
+  letter-spacing:0.08em;
   text-transform:uppercase;
   color:var(--text-dark);
   margin:0 0 20px;
+  position:relative;
+  padding-bottom:10px;
+}
+.nav-column h4::after{
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:30px;
+  height:2px;
+  background:var(--header-yellow-dark);
+  border-radius:2px;
 }
 
 .nav-column ul{
@@ -917,23 +933,26 @@ h2{
   margin:0;
   display:flex;
   flex-direction:column;
-  gap:12px;
+  gap:10px;
 }
 
 .nav-column a{
   font-size:0.9rem;
   color:var(--text-medium);
-  transition:color 0.15s ease;
+  transition:color 0.15s ease, transform 0.15s ease;
+  display:inline-block;
 }
 .nav-column a:hover{
-  color:var(--mango);
+  color:var(--text-dark);
+  transform:translateX(4px);
 }
 
 /* Footer Bottom */
 .footer-bottom{
-  border-top:1px solid var(--border-light);
+  border-top:1px solid rgba(30,41,59,0.15);
   padding:28px 24px;
-  background:var(--background-light);
+  background:rgba(255,255,255,0.2);
+  backdrop-filter:blur(8px);
 }
 
 .footer-bottom-links{
@@ -950,12 +969,12 @@ h2{
   transition:color 0.15s ease;
 }
 .footer-bottom-links a:hover{
-  color:var(--mango);
+  color:var(--text-dark);
 }
 
 .footer-copyright{
   font-size:0.85rem;
-  color:var(--text-light);
+  color:var(--text-medium);
   text-align:center;
   margin:0 0 8px;
 }
@@ -976,6 +995,7 @@ h2{
   .footer-brand{
     grid-column:span 2;
     max-width:none;
+    padding-right:0;
   }
   .footer-nav{
     grid-template-columns:repeat(4, 1fr);
@@ -992,6 +1012,7 @@ h2{
     grid-column:auto;
     align-items:center;
     text-align:center;
+    padding-right:0;
   }
   .footer-social{
     justify-content:center;
@@ -1005,6 +1026,10 @@ h2{
   }
   .nav-column{
     text-align:center;
+  }
+  .nav-column h4::after{
+    left:50%;
+    transform:translateX(-50%);
   }
 }
 
