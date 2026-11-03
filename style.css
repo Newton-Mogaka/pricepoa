@@ -298,7 +298,7 @@ header{
   color:#1e293b;
 }
 .hero .btn-primary svg{
-  fill:#1e293b;
+  fill:#f8fafc;
 }
 .hero .btn-ghost{
   border-color:rgba(255,255,255,0.5);
@@ -407,7 +407,7 @@ h2{
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
 .reveal.show{opacity:1;transform:translateY(0);}
 
-/* How it works â€” stair-step infographic flow */
+/* How it works */
 #how{
   position:relative;
   overflow:hidden;
