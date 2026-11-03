@@ -990,11 +990,34 @@ h2{
   overflow: hidden;
   width: 100%;
   position: relative;
+  min-height: 140px; /* Reserve space for logos (120px + gap) */
 }
 
 .marquee {
   width: 100%;
   overflow: hidden;
+  min-height: 140px;
+}
+
+@media (max-width: 1024px) {
+  .marquee-container,
+  .marquee {
+    min-height: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .marquee-container,
+  .marquee {
+    min-height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .marquee-container,
+  .marquee {
+    min-height: 90px;
+  }
 }
 
 .marquee-track {
