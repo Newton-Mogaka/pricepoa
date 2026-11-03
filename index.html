@@ -36,24 +36,43 @@
   <meta name="twitter:description" content="PricePoa provides AI-powered price comparison via WhatsApp, enabling users to compare prices across leading supermarkets in Kenya.">
   <meta name="twitter:image" content="https://pricepoa.co.ke/assets/og-image.svg">
 
-  <!-- Structured Data (JSON-LD) -->
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://pricepoa.co.ke/">
+
+  <!-- Structured Data (JSON-LD) - WebSite with SearchAction for sitelinks searchbox -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://pricepoa.co.ke/",
+    "name": "PricePoa",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://pricepoa.co.ke/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Structured Data (JSON-LD) - LocalBusiness -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://pricepoa.me/",
+    "@id": "https://pricepoa.co.ke/#localbusiness",
     "name": "PricePoa",
+    "description": "AI-powered price comparison service via WhatsApp for Kenyan supermarkets including Naivas, Carrefour, Quickmart, and Chandarana.",
     "image": [
-      "https://pricepoa.me/assets/logo.svg"
+      "https://pricepoa.co.ke/assets/og-image.svg"
     ],
-    "@id": "",
-    "url": "https://pricepoa.me/",
-    "telephone": "+254 184391281",
+    "url": "https://pricepoa.co.ke/",
+    "telephone": "+254-768-102822",
     "priceRange": "Free",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Nyeri County",
-      "addressLocality": "Kenya",
+      "addressLocality": "Nyeri",
+      "addressRegion": "Nyeri County",
       "postalCode": "10100",
       "addressCountry": "KE"
     },
@@ -64,14 +83,84 @@
     },
     "openingHours": "Mo,Tu,We,Th,Fr,Sa,Su 00:00-23:59",
     "sameAs": [
-      "https://wa.me/254184391281"
+      "https://wa.me/254768102822",
+      "https://facebook.com/pricepoa",
+      "https://instagram.com/pricepoa.ke",
+      "https://twitter.com/pricepoa",
+      "https://linkedin.com/company/pricepoa"
     ],
     "priceSpecification": {
       "@type": "UnitPriceSpecification",
       "price": "0",
       "priceCurrency": "KES",
       "valueAddedTaxIncluded": false
+    },
+    "areaServed": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": "-1.2921",
+        "longitude": "36.8219"
+      },
+      "geoRadius": "50000"
+    },
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://wa.me/254768102822",
+      "servicePhone": "+254-768-102822",
+      "availableLanguage": ["en", "sw"],
+      "processingTime": "PT30S"
     }
+  }
+  </script>
+
+  <!-- Structured Data (JSON-LD) - FAQPage for hero FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is there any cost to use PricePoa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "PricePoa is provided free of charge to all users. There are no subscription fees, hidden charges, or costs of any kind. We sustain operations through anonymized, aggregated data insights that assist retail partners in optimizing their pricing strategies."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How frequently is pricing data updated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pricing data is refreshed multiple times each day to ensure accuracy and relevance. We prioritize updates during peak shopping hours and continuously monitor for price changes at our partner stores."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which geographic areas does PricePoa currently serve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "PricePoa currently focuses on Nairobi and its surrounding regions, with strong coverage in Kasarani, Ruiru, Thika, and along the Mombasa Road corridor. We are actively expanding to other major Kenyan cities including Mombasa, Kisumu, Nakuru, and Eldoret."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it necessary to create an account to use PricePoa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No account creation or registration is required. PricePoa functions directly through your existing WhatsApp application. Simply message our official number and begin requesting price comparisons immediately."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does PricePoa protect user privacy and data security?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "PricePoa leverages WhatsApp's inherent end-to-end encryption, ensuring that all messages remain secure from interception. We do not store your phone number, WhatsApp identifier, price comparison requests, or any personal data. All processing occurs in real-time, and we follow strict data minimization principles."
+        }
+      }
+    ]
   }
   </script>
 
@@ -226,10 +315,10 @@
 
     <!-- Content Layer (foreground) -->
     <div class="wrap nav">
-      <div class="logo">PricePoa</span></div>
+      <div class="logo">PricePoa</div>
       <nav class="nav-links">
         <a href="services.html">Our Services</a>
-        <a href="privacy.html">Security & Privacy</a>
+        <a href="blog/articles.html">Blog</a>
         <a href="faq.html">FAQ</a>
       </nav>
       <a class="btn btn-primary" href="https://wa.me/254768102822?text=Hi%20PricePoa%2C%20I%20want%20to%20compare%20prices" target="_blank" rel="noopener">
@@ -373,15 +462,15 @@
       <div class="marquee-container">
         <div class="marquee" id="brand-marquee">
           <div class="marquee-track">
-            <img src="assets/brands/naivas-supermarket-logo-png_seeklogo-351966.png" alt="" class="brand-logo" width="240" height="120">
-            <img src="assets/brands/Carrefour_(12).png" alt="" class="brand-logo" width="240" height="120">
-            <img src="assets/brands/90482086_2871387169649166_3194649644596461568_n.png" alt="" class="brand-logo" width="240" height="120">
-            <img src="assets/brands/280397668_547745750257085_2044005926407827404_n.jpg" alt="" class="brand-logo" width="240" height="120">
+            <img src="assets/brands/naivas-supermarket-logo-png_seeklogo-351966.png" alt="Naivas Supermarket" class="brand-logo" width="240" height="120">
+            <img src="assets/brands/Carrefour_(12).png" alt="Carrefour Kenya" class="brand-logo" width="240" height="120">
+            <img src="assets/brands/90482086_2871387169649166_3194649644596461568_n.png" alt="Quickmart Supermarket" class="brand-logo" width="240" height="120">
+            <img src="assets/brands/280397668_547745750257085_2044005926407827404_n.jpg" alt="Chandarana Foodplus" class="brand-logo" width="240" height="120">
             <!-- Duplicate set for seamless loop -->
-            <img src="assets/brands/naivas-supermarket-logo-png_seeklogo-351966.png" alt="" class="brand-logo" width="240" height="120">
-            <img src="assets/brands/Carrefour_(12).png" alt="" class="brand-logo" width="240" height="120">
-            <img src="assets/brands/90482086_2871387169649166_3194649644596461568_n.png" alt="" class="brand-logo" width="240" height="120">
-            <img src="assets/brands/280397668_547745750257085_2044005926407827404_n.jpg" alt="" class="brand-logo" width="240" height="120">
+            <img src="assets/brands/naivas-supermarket-logo-png_seeklogo-351966.png" alt="Naivas Supermarket" class="brand-logo" width="240" height="120">
+            <img src="assets/brands/Carrefour_(12).png" alt="Carrefour Kenya" class="brand-logo" width="240" height="120">
+            <img src="assets/brands/90482086_2871387169649166_3194649644596461568_n.png" alt="Quickmart Supermarket" class="brand-logo" width="240" height="120">
+            <img src="assets/brands/280397668_547745750257085_2044005926407827404_n.jpg" alt="Chandarana Foodplus" class="brand-logo" width="240" height="120">
           </div>
         </div>
       </div>
@@ -461,8 +550,6 @@
             </button>
           </div>
           <ul id="nav-resources" class="nav-column-links">
-            <li><a href="privacy.html">Security & Privacy</a></li>
-            <li><a href="terms.html">Terms of Service</a></li>
             <li><a href="blog/">Blog</a></li>
           </ul>
         </div>

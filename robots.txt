@@ -6,9 +6,13 @@ Disallow: /admin/
 Disallow: /private/
 Disallow: /tmp/
 
-# Allow access to CSS and JS files
+# Allow access to CSS, JS, and asset files
 Allow: /*.css$
 Allow: /*.js$
+Allow: /assets/
 
 # Sitemap location
 Sitemap: https://pricepoa.co.ke/sitemap.xml
+
+# Host directive for preferred domain
+Host: https://pricepoa.co.ke
