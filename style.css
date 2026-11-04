@@ -902,7 +902,7 @@ h2{
 
 .footer-main{
   display:grid;
-  grid-template-columns: 1.2fr repeat(4, 1fr);
+  grid-template-columns: 1.8fr repeat(4, 1fr);
   gap:48px;
   padding:64px 24px 48px;
   max-width:1200px;
@@ -910,13 +910,13 @@ h2{
   align-items:start;
 }
 
-/* Brand Section */
+/* Add extra gap after brand column */
 .footer-brand{
   display:flex;
   flex-direction:column;
   gap:28px;
   min-width:0;
-  padding-right:24px;
+  padding-right:48px;
 }
 
 .footer-logo{
