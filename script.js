@@ -246,3 +246,76 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+// Mobile Navigation Toggle
+document.addEventListener('DOMContentLoaded', function() {
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  if (!navToggle || !navMenu) return;
+
+  // Create overlay element
+  const overlay = document.createElement('div');
+  overlay.className = 'nav-overlay';
+  document.body.appendChild(overlay);
+
+  function openMenu() {
+    navToggle.setAttribute('aria-expanded', 'true');
+    navMenu.hidden = false;
+    // Force reflow for animation
+    navMenu.offsetHeight;
+    navMenu.classList.add('is-open');
+    overlay.classList.add('is-visible');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    navToggle.setAttribute('aria-expanded', 'false');
+    navMenu.classList.remove('is-open');
+    overlay.classList.remove('is-visible');
+    document.body.style.overflow = '';
+    // Wait for transition to finish before hiding
+    setTimeout(() => {
+      if (!navMenu.classList.contains('is-open')) {
+        navMenu.hidden = true;
+      }
+    }, 300);
+  }
+
+  function toggleMenu() {
+    if (navToggle.getAttribute('aria-expanded') === 'true') {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+
+  // Toggle button click
+  navToggle.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  // Close menu when clicking overlay
+  overlay.addEventListener('click', closeMenu);
+
+  // Close menu when clicking a link inside the menu
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close menu on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
+      closeMenu();
+      navToggle.focus();
+    }
+  });
+
+  // Close menu on resize to desktop
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 860 && navToggle.getAttribute('aria-expanded') === 'true') {
+      closeMenu();
+    }
+  });
+});
