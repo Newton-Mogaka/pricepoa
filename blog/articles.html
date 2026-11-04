@@ -259,8 +259,18 @@
     <!-- Featured Article Section -->
     <section class="featured-section" style="padding: 0 0 60px;">
       <div class="wrap">
-        <div class="featured-carousel" id="featured-carousel">
-          <!-- Featured articles will be rendered by JS -->
+        <div class="featured-carousel-wrapper">
+          <div class="featured-carousel" id="featured-carousel">
+            <!-- Featured articles will be rendered by JS -->
+          </div>
+        </div>
+        <div class="featured-nav" aria-label="Featured articles navigation">
+          <button class="featured-nav-btn featured-prev" aria-label="Previous featured article" type="button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button class="featured-nav-btn featured-next" aria-label="Next featured article" type="button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
         </div>
       </div>
     </section>
@@ -438,65 +448,65 @@
     ];
 
     // Featured Articles Carousel
-    let featuredIndex = 0;
     const featuredArticles = blogArticles.filter(a => a.featured);
     const featuredCarousel = document.getElementById('featured-carousel');
+    const featuredPrevBtn = document.querySelector('.featured-prev');
+    const featuredNextBtn = document.querySelector('.featured-next');
 
-    function renderFeaturedArticle(index) {
-      const article = featuredArticles[index];
-      if (!article) return;
-
-      featuredCarousel.innerHTML = `
-        <article class="featured-card reveal">
-          <div class="featured-image" style="background-image: url('${article.image}');"></div>
-          <div class="featured-overlay"></div>
+    function renderFeaturedCarousel() {
+      featuredCarousel.innerHTML = featuredArticles.map((article, index) => `
+        <article class="featured-card reveal" style="--card-index: ${index};">
+          <a href="${article.url}" class="featured-image-link" aria-label="Read ${article.title}">
+            <div class="featured-image" style="background-image: url('${article.image}');"></div>
+            <div class="featured-overlay"></div>
+          </a>
           <div class="featured-content">
             <span class="featured-category">${article.category}</span>
-            <h1 class="featured-title">${article.title}</h1>
+            <h2 class="featured-title">
+              <a href="${article.url}">${article.title}</a>
+            </h2>
             <p class="featured-description">${article.description}</p>
-            <a href="${article.url}" class="btn btn-primary featured-link">
-              Read Article
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            <a href="${article.url}" class="featured-read-more">
+              Read more
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </a>
           </div>
-          <button class="featured-next-btn" aria-label="Next featured article" title="Next article">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </button>
         </article>
-      `;
-
-      // Attach next button handler
-      const nextBtn = featuredCarousel.querySelector('.featured-next-btn');
-      if (nextBtn) {
-        nextBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          nextFeatured();
-        });
-      }
+      `).join('');
     }
 
-    function nextFeatured() {
-      featuredIndex = (featuredIndex + 1) % featuredArticles.length;
-      renderFeaturedArticle(featuredIndex);
+    // Carousel scroll navigation
+    function scrollCarousel(direction) {
+      const cardWidth = featuredCarousel.querySelector('.featured-card');
+      if (!cardWidth) return;
+
+      const scrollAmount = cardWidth.offsetWidth + 24; // card width + gap
+      featuredCarousel.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+      });
     }
+
+    featuredPrevBtn?.addEventListener('click', () => scrollCarousel(-1));
+    featuredNextBtn?.addEventListener('click', () => scrollCarousel(1));
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') nextFeatured();
+      if (e.key === 'ArrowRight') scrollCarousel(1);
+      if (e.key === 'ArrowLeft') scrollCarousel(-1);
     });
 
     // Auto-advance carousel (slower - 10 seconds)
-    let carouselInterval = setInterval(nextFeatured, 10000);
+    let carouselInterval = setInterval(() => scrollCarousel(1), 10000);
     const featuredSection = document.querySelector('.featured-section');
     featuredSection.addEventListener('mouseenter', () => clearInterval(carouselInterval));
     featuredSection.addEventListener('mouseleave', () => {
       clearInterval(carouselInterval);
-      carouselInterval = setInterval(nextFeatured, 10000);
+      carouselInterval = setInterval(() => scrollCarousel(1), 10000);
     });
 
     // Initial render
-    renderFeaturedArticle(0);
+    renderFeaturedCarousel();
 
     // Articles Grid
     const articlesGrid = document.getElementById('articles-grid');
