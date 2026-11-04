@@ -160,7 +160,7 @@ header{
 
 /* Open state - cross-fade to basket */
 .nav-toggle[aria-expanded="true"]{
-  color: var(--mango);
+  color: var(--text-dark);
 }
 .nav-toggle[aria-expanded="true"] .hamburger-path{
   opacity: 0;
@@ -1432,44 +1432,23 @@ h2{
   position:relative;
   max-width:1200px;
   margin:0 auto;
+  overflow:hidden;
 }
 
 .featured-carousel{
   display:flex;
   gap:24px;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  scroll-padding:0 24px;
-  padding:0 24px 16px;
-  margin:0 -24px;
-  scrollbar-width:thin;
-  scrollbar-color:var(--mango) transparent;
-}
-
-.featured-carousel::-webkit-scrollbar{
-  height:8px;
-}
-.featured-carousel::-webkit-scrollbar-track{
-  background:transparent;
-}
-.featured-carousel::-webkit-scrollbar-thumb{
-  background:var(--mango);
-  border-radius:4px;
-}
-.featured-carousel::-webkit-scrollbar-thumb:hover{
-  background:#E87C0A;
+  transition:transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change:transform;
 }
 
 .featured-card{
-  flex:0 0 auto;
-  scroll-snap-align:start;
+  flex:0 0 100%;
   position:relative;
   border-radius:var(--radius-xl);
   overflow:hidden;
   min-height:520px;
   background:var(--text-dark);
-  width:100%;
-  max-width:560px;
 }
 
 .featured-image-link{
@@ -1589,53 +1568,12 @@ h2{
   transform:translateX(4px);
 }
 
-/* Featured Navigation Buttons */
-.featured-nav{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  margin-top:24px;
-}
-
-.featured-nav-btn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  background:var(--background-white);
-  border:2px solid var(--border-light);
-  color:var(--text-dark);
-  cursor:pointer;
-  transition:all 0.2s ease;
-  box-shadow:0 2px 8px rgba(0,0,0,0.08);
-}
-
-.featured-nav-btn:hover{
-  background:var(--mango);
-  border-color:var(--mango);
-  color:#ffffff;
-  transform:translateY(-2px);
-  box-shadow:0 4px 16px rgba(242,166,60,0.3);
-}
-
-.featured-nav-btn:active{
-  transform:translateY(0);
-}
-
-.featured-nav-btn:focus-visible{
-  outline:3px solid var(--mango);
-  outline-offset:3px;
-}
-
 @media (max-width:900px){
   .articles-grid{
     grid-template-columns:repeat(2, 1fr);
   }
   .featured-card{
     min-height:480px;
-    max-width:480px;
   }
   .featured-content{
     min-height:480px;
@@ -1647,23 +1585,11 @@ h2{
   .featured-description{
     font-size:1rem;
   }
-  .featured-nav-btn{
-    width:44px;
-    height:44px;
-  }
 }
 
 @media (max-width:768px){
-  .featured-carousel{
-    gap:16px;
-    padding:0 16px 12px;
-    margin:0 -16px;
-    scroll-padding:0 16px;
-  }
   .featured-card{
     min-height:440px;
-    max-width:100%;
-    width:calc(100% - 32px);
     border-radius:var(--radius);
   }
   .featured-content{
@@ -1675,10 +1601,6 @@ h2{
   }
   .featured-description{
     font-size:0.95rem;
-  }
-  .featured-nav-btn{
-    width:40px;
-    height:40px;
   }
 }
 
@@ -1698,7 +1620,6 @@ h2{
   }
   .featured-card{
     min-height:380px;
-    width:calc(100% - 24px);
   }
   .featured-content{
     min-height:380px;
@@ -1832,7 +1753,6 @@ h2{
   }
   .featured-card{
     min-height:480px;
-    max-width:480px;
   }
   .featured-content{
     min-height:480px;
@@ -1844,23 +1764,11 @@ h2{
   .featured-description{
     font-size:1rem;
   }
-  .featured-nav-btn{
-    width:44px;
-    height:44px;
-  }
 }
 
 @media (max-width:768px){
-  .featured-carousel{
-    gap:16px;
-    padding:0 16px 12px;
-    margin:0 -16px;
-    scroll-padding:0 16px;
-  }
   .featured-card{
     min-height:440px;
-    max-width:100%;
-    width:calc(100% - 32px);
     border-radius:var(--radius);
   }
   .featured-content{
@@ -1872,10 +1780,6 @@ h2{
   }
   .featured-description{
     font-size:0.95rem;
-  }
-  .featured-nav-btn{
-    width:40px;
-    height:40px;
   }
 }
 
@@ -1895,7 +1799,6 @@ h2{
   }
   .featured-card{
     min-height:380px;
-    width:calc(100% - 24px);
   }
   .featured-content{
     min-height:380px;
@@ -1910,9 +1813,9 @@ h2{
 @media (prefers-reduced-motion:reduce){
   .article-image,
   .article-card,
+  .featured-carousel,
   .featured-read-more,
-  .article-read-more,
-  .featured-nav-btn{
+  .article-read-more{
     transition:none;
   }
   .article-card:hover .article-image{

@@ -264,14 +264,6 @@
             <!-- Featured articles will be rendered by JS -->
           </div>
         </div>
-        <div class="featured-nav" aria-label="Featured articles navigation">
-          <button class="featured-nav-btn featured-prev" aria-label="Previous featured article" type="button">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-          </button>
-          <button class="featured-nav-btn featured-next" aria-label="Next featured article" type="button">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </button>
-        </div>
       </div>
     </section>
 
@@ -450,8 +442,6 @@
     // Featured Articles Carousel
     const featuredArticles = blogArticles.filter(a => a.featured);
     const featuredCarousel = document.getElementById('featured-carousel');
-    const featuredPrevBtn = document.querySelector('.featured-prev');
-    const featuredNextBtn = document.querySelector('.featured-next');
 
     function renderFeaturedCarousel() {
       featuredCarousel.innerHTML = featuredArticles.map((article, index) => `
@@ -475,38 +465,39 @@
       `).join('');
     }
 
-    // Carousel scroll navigation
-    function scrollCarousel(direction) {
-      const cardWidth = featuredCarousel.querySelector('.featured-card');
-      if (!cardWidth) return;
-
-      const scrollAmount = cardWidth.offsetWidth + 24; // card width + gap
-      featuredCarousel.scrollBy({
-        left: direction * scrollAmount,
-        behavior: 'smooth'
-      });
+    function updateCarousel() {
+      const cards = featuredCarousel.querySelectorAll('.featured-card');
+      const cardWidth = cards[0]?.offsetWidth || 0;
+      const gap = 24;
+      const translateX = -(featuredIndex * (cardWidth + gap));
+      featuredCarousel.style.transform = `translateX(${translateX}px)`;
     }
 
-    featuredPrevBtn?.addEventListener('click', () => scrollCarousel(-1));
-    featuredNextBtn?.addEventListener('click', () => scrollCarousel(1));
+    function nextFeatured() {
+      featuredIndex = (featuredIndex + 1) % featuredArticles.length;
+      updateCarousel();
+    }
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') scrollCarousel(1);
-      if (e.key === 'ArrowLeft') scrollCarousel(-1);
-    });
-
-    // Auto-advance carousel (slower - 10 seconds)
-    let carouselInterval = setInterval(() => scrollCarousel(1), 10000);
+    // Auto-advance carousel (10 seconds)
+    let carouselInterval = setInterval(nextFeatured, 10000);
     const featuredSection = document.querySelector('.featured-section');
     featuredSection.addEventListener('mouseenter', () => clearInterval(carouselInterval));
     featuredSection.addEventListener('mouseleave', () => {
       clearInterval(carouselInterval);
-      carouselInterval = setInterval(() => scrollCarousel(1), 10000);
+      carouselInterval = setInterval(nextFeatured, 10000);
+    });
+
+    // Handle window resize to recalculate position
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(updateCarousel, 100);
     });
 
     // Initial render
     renderFeaturedCarousel();
+    // Update carousel after render (need to wait for layout)
+    requestAnimationFrame(() => updateCarousel());
 
     // Articles Grid
     const articlesGrid = document.getElementById('articles-grid');
