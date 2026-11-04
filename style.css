@@ -902,7 +902,7 @@ h2{
 
 .footer-main{
   display:grid;
-  grid-template-columns: 5.5fr repeat(4, 1fr);
+  grid-template-columns: 1.8fr 80px repeat(4, 1fr);
   gap:48px;
   padding:64px 24px 48px;
   max-width:1200px;
