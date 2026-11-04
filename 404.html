@@ -181,11 +181,16 @@
     <div class="wrap nav">
       <!-- Mobile hamburger menu button (appears before logo on mobile) -->
       <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu" type="button">
-        <span class="hamburger" aria-hidden="true">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </span>
+        <svg class="hamburger-svg" aria-hidden="true" viewBox="0 0 24 28" width="24" height="28">
+          <path class="hamburger-path"
+            d="M 4 7 L 20 7 M 4 14 L 20 14 M 4 21 L 20 21"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            fill="none"
+            style="transition: stroke 0.2s ease;"
+          />
+        </svg>
       </button>
 
       <!-- Logo - links to home -->

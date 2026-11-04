@@ -128,7 +128,7 @@ header{
   display:none;
   flex-direction:column;
   justify-content:center;
-  gap:5px;
+  align-items:center;
   width:40px;
   height:40px;
   padding:0;
@@ -136,33 +136,31 @@ header{
   border:none;
   cursor:pointer;
   z-index:100;
+  color: var(--text-dark);
 }
 
-.hamburger{
-  display:flex;
-  flex-direction:column;
-  gap:5px;
+.hamburger-svg{
   width:24px;
-}
-
-.hamburger-line{
+  height:28px;
   display:block;
-  width:100%;
-  height:2px;
-  background:var(--text-dark);
-  border-radius:2px;
-  transition:transform 0.3s ease, opacity 0.3s ease;
-  transform-origin:center;
 }
 
-.nav-toggle[aria-expanded="true"] .hamburger-line:nth-child(1){
-  transform:translateY(7px) rotate(45deg);
+.hamburger-path{
+  /* Initial hamburger state */
+  d: path("M 4 7 L 20 7 M 4 14 L 20 14 M 4 21 L 20 21");
 }
-.nav-toggle[aria-expanded="true"] .hamburger-line:nth-child(2){
-  opacity:0;
+
+/* Open state - morph to basket */
+.nav-toggle[aria-expanded="true"] .hamburger-path{
+  /* Basket path will be set via JS Web Animations API */
+  stroke: var(--mango);
 }
-.nav-toggle[aria-expanded="true"] .hamburger-line:nth-child(3){
-  transform:translateY(-7px) rotate(-45deg);
+
+/* Reduced motion - instant swap */
+@media (prefers-reduced-motion: reduce){
+  .nav-toggle[aria-expanded="true"] .hamburger-path{
+    d: path("M 4 8 Q 4 5, 7 5 L 17 5 Q 20 5, 20 8 L 20 22 Q 20 25, 17 25 L 7 25 Q 4 25, 4 22 Z M 12 5 Q 12 2, 15 2 Q 18 2, 18 5");
+  }
 }
 
 .logo{
