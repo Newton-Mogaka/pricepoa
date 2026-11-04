@@ -78,33 +78,11 @@
   </header>
 
   <main id="main-content">
-    <!-- Blog Hero Section -->
-    <section class="blog-hero" style="padding: 60px 0; background: var(--ink-2);">
-      <div class="wrap">
-        <div class="section-head reveal" style="text-align:center;margin:0 auto 44px;">
-          <span class="kicker">PricePoa Blog</span>
-          <h2>Smart shopping tips, price trends, and market insights</h2>
-          <p style="margin:0 auto; max-width: 600px;">Helping you make informed purchasing decisions</p>
-        </div>
-      </div>
-    </section>
-
     <!-- Featured Article Section -->
     <section class="featured-section" style="padding: 0 0 60px;">
       <div class="wrap">
         <div class="featured-carousel" id="featured-carousel">
           <!-- Featured articles will be rendered by JS -->
-        </div>
-
-        <!-- Carousel Navigation -->
-        <div class="featured-nav" aria-label="Featured articles navigation">
-          <button class="featured-btn featured-btn--prev" id="featured-prev" aria-label="Previous featured article">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-          </button>
-          <div class="featured-dots" id="featured-dots" aria-label="Featured article indicators"></div>
-          <button class="featured-btn featured-btn--next" id="featured-next" aria-label="Next featured article">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </button>
         </div>
       </div>
     </section>
@@ -287,9 +265,6 @@
     let featuredIndex = 0;
     const featuredArticles = blogArticles.filter(a => a.featured);
     const featuredCarousel = document.getElementById('featured-carousel');
-    const featuredDots = document.getElementById('featured-dots');
-    const featuredPrev = document.getElementById('featured-prev');
-    const featuredNext = document.getElementById('featured-next');
 
     function renderFeaturedArticle(index) {
       const article = featuredArticles[index];
@@ -308,24 +283,21 @@
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </a>
           </div>
+          <button class="featured-next-btn" aria-label="Next featured article" title="Next article">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
         </article>
       `;
 
-      // Update dots
-      featuredDots.innerHTML = featuredArticles.map((_, i) => `
-        <button class="featured-dot ${i === index ? 'active' : ''}"
-                data-index="${i}"
-                aria-label="Go to featured article ${i + 1}"
-                aria-current="${i === index ? 'true' : 'false'}"></button>
-      `).join('');
-
-      // Re-attach dot click handlers
-      document.querySelectorAll('.featured-dot').forEach(dot => {
-        dot.addEventListener('click', () => {
-          featuredIndex = parseInt(dot.dataset.index);
-          renderFeaturedArticle(featuredIndex);
+      // Attach next button handler
+      const nextBtn = featuredCarousel.querySelector('.featured-next-btn');
+      if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          nextFeatured();
         });
-      });
+      }
     }
 
     function nextFeatured() {
@@ -333,27 +305,18 @@
       renderFeaturedArticle(featuredIndex);
     }
 
-    function prevFeatured() {
-      featuredIndex = (featuredIndex - 1 + featuredArticles.length) % featuredArticles.length;
-      renderFeaturedArticle(featuredIndex);
-    }
-
-    // Event listeners
-    featuredNext.addEventListener('click', nextFeatured);
-    featuredPrev.addEventListener('click', prevFeatured);
-
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight') nextFeatured();
-      if (e.key === 'ArrowLeft') prevFeatured();
     });
 
-    // Auto-advance carousel
-    let carouselInterval = setInterval(nextFeatured, 6000);
+    // Auto-advance carousel (slower - 10 seconds)
+    let carouselInterval = setInterval(nextFeatured, 10000);
     const featuredSection = document.querySelector('.featured-section');
     featuredSection.addEventListener('mouseenter', () => clearInterval(carouselInterval));
     featuredSection.addEventListener('mouseleave', () => {
-      carouselInterval = setInterval(nextFeatured, 6000);
+      clearInterval(carouselInterval);
+      carouselInterval = setInterval(nextFeatured, 10000);
     });
 
     // Initial render
