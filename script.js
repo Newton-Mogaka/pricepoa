@@ -247,60 +247,17 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Hamburger-to-Basket SVG Path Morphing
-const HAMBURGER_PATH = "M 4 7 L 20 7 M 4 14 L 20 14 M 4 21 L 20 21";
-const BASKET_PATH = "M 4 8 Q 4 5, 7 5 L 17 5 Q 20 5, 20 8 L 20 22 Q 20 25, 17 25 L 7 25 Q 4 25, 4 22 Z M 12 5 Q 12 2, 15 2 Q 18 2, 18 5";
-
-function morphHamburgerToBasket(pathEl, toBasket) {
-  if (!pathEl) return;
-
-  // Check for prefers-reduced-motion
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (prefersReduced) {
-    pathEl.setAttribute('d', toBasket ? BASKET_PATH : HAMBURGER_PATH);
-    pathEl.style.stroke = toBasket ? 'var(--mango)' : 'var(--text-dark)';
-    return;
-  }
-
-  // Use Web Animations API for smooth morphing
-  try {
-    const animation = pathEl.animate(
-      [
-        { d: pathEl.getAttribute('d') || HAMBURGER_PATH },
-        { d: toBasket ? BASKET_PATH : HAMBURGER_PATH }
-      ],
-      {
-        duration: 300,
-        easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
-        fill: 'forwards'
-      }
-    );
-
-    // Animate stroke color change
-    pathEl.animate(
-      [
-        { stroke: pathEl.style.stroke || 'var(--text-dark)' },
-        { stroke: toBasket ? 'var(--mango)' : 'var(--text-dark)' }
-      ],
-      {
-        duration: 200,
-        easing: 'ease',
-        fill: 'forwards'
-      }
-    );
-  } catch (e) {
-    // Fallback for browsers without WAAPI path support
-    pathEl.setAttribute('d', toBasket ? BASKET_PATH : HAMBURGER_PATH);
-    pathEl.style.stroke = toBasket ? 'var(--mango)' : 'var(--text-dark)';
-  }
+// Hamburger-to-Basket SVG Dual-Path Opacity Cross-Fade
+function toggleHamburgerToBasket(navToggle, toBasket) {
+  // The CSS handles the opacity transition via [aria-expanded="true"] selectors
+  // This function just ensures aria-expanded is set correctly (done in openMenu/closeMenu)
+  // No JS animation needed - CSS transition handles it
 }
 
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
   const navToggle = document.querySelector('.nav-toggle');
   const navMenu = document.getElementById('nav-menu');
-  const hamburgerPath = document.querySelector('.hamburger-path');
 
   if (!navToggle || !navMenu) return;
 
@@ -317,8 +274,6 @@ document.addEventListener('DOMContentLoaded', function() {
     navMenu.classList.add('is-open');
     overlay.classList.add('is-visible');
     document.body.style.overflow = 'hidden';
-    // Morph hamburger to basket
-    morphHamburgerToBasket(hamburgerPath, true);
   }
 
   function closeMenu() {
@@ -326,8 +281,6 @@ document.addEventListener('DOMContentLoaded', function() {
     navMenu.classList.remove('is-open');
     overlay.classList.remove('is-visible');
     document.body.style.overflow = '';
-    // Morph basket back to hamburger
-    morphHamburgerToBasket(hamburgerPath, false);
     // Wait for transition to finish before hiding
     setTimeout(() => {
       if (!navMenu.classList.contains('is-open')) {
