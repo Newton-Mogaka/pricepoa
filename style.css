@@ -159,6 +159,9 @@ header{
 }
 
 /* Open state - cross-fade to basket */
+.nav-toggle[aria-expanded="true"]{
+  color: var(--mango);
+}
 .nav-toggle[aria-expanded="true"] .hamburger-path{
   opacity: 0;
 }
