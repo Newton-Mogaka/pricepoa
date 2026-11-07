@@ -75,8 +75,6 @@
 </head>
 <body>
 
-  <a>
-
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header>
@@ -94,121 +92,172 @@
   </header>
 
   <main id="main-content">
-    <section style="padding: 60px 0; min-height: 80vh;">
+    <!-- Hero Header Image -->
+    <section class="article-hero" aria-labelledby="article-title">
+      <div class="article-hero-image">
+        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80" alt="Nairobi supermarket aisle with shoppers comparing prices" loading="eager">
+      </div>
+      <div class="article-hero-overlay"></div>
+      <div class="wrap article-hero-content">
+        <div class="article-meta-tags">
+          <span class="tag">Market Analysis</span>
+          <span class="tag">July 2026</span>
+          <span class="tag">Nairobi</span>
+        </div>
+        <h1 id="article-title" class="article-title">Weekly Price Trends: July 2026 Market Analysis</h1>
+      </div>
+    </section>
+
+    <!-- Author & Read Time Section -->
+    <section class="article-author-section" aria-label="Author information">
       <div class="wrap">
-        <article class="glass-panel-medium" style="max-width: 800px; margin: 0 auto; padding: 40px;">
-          <div style="margin-bottom: 24px;">
-            <span class="tag" style="background: rgba(242,239,230,0.1); border-color: var(--rule);">Market Analysis</span>
-            <span class="tag" style="background: rgba(242,239,230,0.1); border-color: var(--rule);">July 2026</span>
-            <span class="tag" style="background: rgba(242,239,230,0.1); border-color: var(--rule);">Nairobi</span>
+        <div class="author-card">
+          <div class="author-avatar-wrapper">
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=pricepoa-research&backgroundColor=10b981,2563eb,fde047" alt="PricePoa Research Team" class="author-avatar" loading="lazy">
+          </div>
+          <div class="author-info">
+            <span class="author-label">By</span>
+            <address class="author-name">PricePoa Research Team</address>
+            <time class="article-date" datetime="2026-07-31">July 31, 2026</time>
+          </div>
+          <div class="article-read-time">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>8 min read</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Article Body -->
+    <article class="article-body">
+      <div class="wrap">
+        <div class="article-content-wrapper">
+
+          <!-- Lead Paragraph -->
+          <div class="article-lead">
+            <p>Nairobi's supermarket landscape saw notable shifts in July 2026, with staple food prices responding to seasonal harvest patterns and global commodity fluctuations. Our analysis of over 10,000 price points across Naivas, Carrefour, Quickmart, and Chandarana reveals clear winners for budget-conscious shoppers.</p>
           </div>
 
-          <h1 style="color: var(--mango); margin-top: 0; font-size: 2.2rem; line-height: 1.3;">
-            Weekly Price Trends: July 2026 Market Analysis
-          </h1>
-
-          <p style="color: var(--chalk-dim); font-size: 1.1rem; line-height: 1.7; margin-bottom: 24px;">
-            Published: July 31, 2026 | By PricePoa Research Team
-          </p>
-
-          <div style="background: var(--glass-opacity-light); backdrop-filter: blur(var(--glass-blur-light)); border: 1px solid var(--rule); border-radius: var(--radius); padding: 24px; margin-bottom: 32px;">
-            <h2 style="color: var(--whatsapp); margin-top: 0;">Key Findings</h2>
-            <ul style="color: var(--chalk-dim); line-height: 1.8; margin-left: 20px;">
+          <!-- Key Findings -->
+          <section class="article-section glass-panel" aria-labelledby="key-findings-heading">
+            <h2 id="key-findings-heading" class="article-section-title">Key Findings</h2>
+            <ul class="article-findings-list">
               <li><strong>Maize flour (unga)</strong> prices decreased by 8% across all major chains due to improved harvest yields</li>
               <li><strong>Cooking oil</strong> showed volatility, with prices ranging from KES 245-280 for 2L containers</li>
               <li><strong>Sugar prices</strong> remained relatively stable, averaging KES 125-135 per kg</li>
               <li><strong>Milk prices</strong> increased slightly (3-5%) due to transportation cost adjustments</li>
               <li>Best overall value: Carrefour for dry goods, Naivas for fresh produce</li>
             </ul>
-          </div>
+          </section>
 
-          <h2 style="color: var(--mango); border-bottom: 1px solid var(--rule); padding-bottom: 8px;">Detailed Price Analysis</h2>
+          <!-- Inline Article Image -->
+          <figure class="article-figure">
+            <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1000&q=80" alt="Price comparison chart showing maize flour, cooking oil, and sugar prices across Nairobi supermarkets" loading="lazy">
+            <figcaption>Price comparison across major Nairobi supermarkets for July 2026</figcaption>
+          </figure>
 
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-bottom: 32px;">
-            <div class="glass-panel" style="padding: 20px;">
-              <h3 style="color: var(--mango); margin-top: 0;">Staples</h3>
-              <table style="width: 100%; border-collapse: collapse; color: var(--chalk-dim); font-size: 0.9rem;">
-                <tr>
-                  <td style="padding: 8px 0; border-bottom: 1px solid var(--rule);">Maize Flour (2kg)</td>
-                  <td style="padding: 8px 0; border-bottom: 1px solid var(--rule); text-align: right;"><strong>KES 110-125</strong></td>
-                </tr>
-                <tr>
-                  <td style="padding: 8px 0; border-bottom: 1px solid var(--rule);">White Sugar (1kg)</td>
-                  <td style="padding: 8px 0; border-bottom: 1px solid var(--rule); text-align: right;"><strong>KES 125-135</strong></td>
-                </tr>
-                <tr>
-                  <td style="padding: 8px 0; border-bottom: 1px solid var(--rule);">Rice (2kg)</td>
-                  <td style="padding: 8px 0; border-bottom: 1px solid var(--rule); text-align: right;"><strong>KES 180-210</strong></td>
-                </tr>
-                <tr>
-                  <td style="padding: 8px 0; border-bottom: 1px solid var(--rule);">Wheat Flour (2kg)</td>
-                  <td style="padding: 8px 0; border-bottom: 1px solid var(--rule); text-align: right;"><strong>KES 140-160</strong></td>
-                </tr>
-              </table>
+          <!-- Detailed Price Analysis -->
+          <section class="article-section" aria-labelledby="detailed-analysis-heading">
+            <h2 id="detailed-analysis-heading" class="article-section-title">Detailed Price Analysis</h2>
+
+            <div class="article-table-grid">
+              <div class="article-table-card glass-panel">
+                <h3 class="article-table-title">Staples</h3>
+                <table class="article-table">
+                  <tbody>
+                    <tr><td>Maize Flour (2kg)</td><td><strong>KES 110-125</strong></td></tr>
+                    <tr><td>White Sugar (1kg)</td><td><strong>KES 125-135</strong></td></tr>
+                    <tr><td>Rice (2kg)</td><td><strong>KES 180-210</strong></td></tr>
+                    <tr><td>Wheat Flour (2kg)</td><td><strong>KES 140-160</strong></td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="article-table-card glass-panel">
+                <h3 class="article-table-title">Cooking Essentials</h3>
+                <table class="article-table">
+                  <tbody>
+                    <tr><td>Cooking Oil (2L)</td><td><strong>KES 245-280</strong></td></tr>
+                    <tr><td>Salt (1kg)</td><td><strong>KES 25-35</strong></td></tr>
+                    <tr><td>Tea Leaves (100g)</td><td><strong>KES 140-170</strong></td></tr>
+                    <tr><td>Coffee (100g)</td><td><strong>KES 220-260</strong></td></tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
+          </section>
 
-            <div class="glass-panel" style="padding: 20px;">
-              <h3 style="color: var(--mango); margin-top: 0;">Cooking Essentials</h3>
-              <table style="width: 100%; border-collapse: collapse; color: var(--chalk-dim); font-size: 0.9rem;">
-                <tr>
-                  <td style="padding: 8px 0; border-bottom: 1px solid var(--rule);">Cooking Oil (2L)</td>
-                  <td style="padding: 8px 0; border-bottom: 1px solid var(--rule); text-align: right;"><strong>KES 245-280</strong></td>
-                </tr>
-                <tr>
-                  <td style="padding: 8px 0; border-bottom: 1px solid var(--rule);">Salt (1kg)</td>
-                  <td style="padding: 8px 0; border-bottom: 1px solid var(--rule); text-align: right;"><strong>KES 25-35</strong></td>
-                </tr>
-                <tr>
-                  <td style="padding: 8px 0; border-bottom: 1px solid var(--rule);">Tea Leaves (100g)</td>
-                  <td style="padding: 8px 0; border-bottom: 1px solid var(--rule); text-align: right;"><strong>KES 140-170</strong></td>
-                </tr>
-                <tr>
-                  <td style="padding: 8px 0; border-bottom: 1px solid var(--rule);">Coffee (100g)</td>
-                  <td style="padding: 8px 0; border-bottom: 1px solid var(--rule); text-align: right;"><strong>KES 220-260</strong></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-
-          <h2 style="color: var(--mango); border-bottom: 1px solid var(--rule); padding-bottom: 8px;">Shopping Recommendations</h2>
-
-          <div class="glass-panel" style="padding: 24px;">
-            <h3 style="color: var(--whatsApp); margin-top: 0;">Where to Shop for Best Value</h3>
-            <p style="color: var(--chalk-dim); margin-bottom: 16px;">
-              Based on our analysis of 10,000+ price points collected throughout July 2026:
-            </p>
-            <ul style="color: var(--chalk-dim); line-height: 1.8; margin-left: 20px;">
+          <!-- Shopping Recommendations -->
+          <section class="article-section glass-panel" aria-labelledby="recommendations-heading">
+            <h2 id="recommendations-heading" class="article-section-title">Shopping Recommendations</h2>
+            <h3 class="article-subsection-title">Where to Shop for Best Value</h3>
+            <p>Based on our analysis of 10,000+ price points collected throughout July 2026:</p>
+            <ul class="article-recommendations-list">
               <li><strong>For dry goods (flour, sugar, rice):</strong> Carrefour consistently offered the best prices, averaging 5-7% lower than competitors</li>
               <li><strong>For fresh produce:</strong> Naivas had superior quality and pricing for vegetables and fruits</li>
               <li><strong>For household essentials:</strong> Quickmart provided competitive pricing on cleaning supplies and toiletries</li>
               <li><strong>For specialty items:</strong> Chandarana excelled in organic and international food selections</li>
               <li><strong>For emergency/top-up shopping:</strong> Local dukas were convenient for small quantities, despite slightly higher per-unit prices</li>
             </ul>
-          </div>
+          </section>
 
-          <h2 style="color: var(--mango); border-bottom: 1px solid var(--rule); padding-bottom: 8px;">Looking Ahead: August 2026</h2>
-
-          <div class="glass-panel" style="padding: 24px;">
-            <p style="color: var(--chalk-dim); line-height: 1.7; margin-bottom: 16px;">
-              Based on current market indicators and historical trends, we anticipate:
-            </p>
-            <ul style="color: var(--chalk-dim); line-height: 1.8; margin-left: 20px;">
+          <!-- Looking Ahead -->
+          <section class="article-section glass-panel" aria-labelledby="looking-ahead-heading">
+            <h2 id="looking-ahead-heading" class="article-section-title">Looking Ahead: August 2026</h2>
+            <p>Based on current market indicators and historical trends, we anticipate:</p>
+            <ul class="article-recommendations-list">
               <li>Continued stability in grain prices as harvest season progresses</li>
               <li>Potential increases in vegetable prices due to seasonal transitions</li>
               <li>Stable to slightly decreasing prices for cooking oil as global markets adjust</li>
               <li>Increased promotional activity as stores prepare for back-to-school season</li>
             </ul>
-            <p style="color: var(--chalk-dim); font-style: italic; margin-top: 16px;">
-              <strong>Pro Tip:</strong> Consider stocking up on non-perishables when you see favorable prices, and use PricePoa regularly to catch flash sales and promotional pricing.
-            </p>
-          </div>
+            <p class="article-pro-tip"><strong>Pro Tip:</strong> Consider stocking up on non-perishables when you see favorable prices, and use PricePoa regularly to catch flash sales and promotional pricing.</p>
+          </section>
 
-          <div style="text-align: center; margin-top: 32px;">
-            <a href="articles.html" class="btn btn-primary" style="padding: 14px 28px;">
-              ← Back to Blog
-            </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Engagement Section: Like & Share -->
+    <section class="article-engagement" aria-label="Article engagement">
+      <div class="wrap">
+        <div class="engagement-card glass-panel">
+          <div class="engagement-left">
+            <!-- Like Button -->
+            <button class="like-button" aria-label="Like this article" aria-pressed="false" type="button">
+              <svg class="like-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span class="like-count">24</span>
+            </button>
           </div>
-        </article>
+          <div class="engagement-right">
+            <span class="share-label">Share:</span>
+            <div class="share-buttons">
+              <!-- WhatsApp -->
+              <a href="https://wa.me/?text=July%202026%20Nairobi%20Supermarket%20Price%20Trends%20-%20PricePoa%20https%3A%2F%2Fpricepoa.me%2Fblog%2Fjuly-2026-analysis.html" target="_blank" rel="noopener" class="share-btn share-whatsapp" aria-label="Share on WhatsApp">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.8.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.2L2 22l4.9-1.3c1.5.8 3.2 1.3 5.1 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.7 0-3.3-.5-4.7-1.3l-.3-.2-3.5.9.9-3.4-.2-.3C3.5 14.5 3 12.8 3 12c0-5 4-9 9-9s9 4 9 9-4 9-9 9.3z"/></svg>
+              </a>
+              <!-- Facebook -->
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpricepoa.me%2Fblog%2Fjuly-2026-analysis.html" target="_blank" rel="noopener" class="share-btn share-facebook" aria-label="Share on Facebook">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <!-- Instagram -->
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="share-btn share-instagram" aria-label="Share on Instagram">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <!-- Twitter/X -->
+              <a href="https://twitter.com/intent/tweet?text=July%202026%20Nairobi%20Supermarket%20Price%20Trends&url=https%3A%2F%2Fpricepoa.me%2Fblog%2Fjuly-2026-analysis.html" target="_blank" rel="noopener" class="share-btn share-twitter" aria-label="Share on Twitter">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 9.36-3.307.96-8.503-9.36L6.21 16.8l-3.308.96L12.763 9.3l-7.888 8.68 3.308.96L22.61 6.62 18.244 2.25z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to Blog Link -->
+    <section class="article-back-link">
+      <div class="wrap">
+        <a href="articles.html" class="btn btn-primary">← Back to Blog</a>
       </div>
     </section>
   </main>
@@ -306,5 +355,41 @@
   </footer>
 
   <script src="../script.js"></script>
+
+  <!-- Article-specific JavaScript -->
+  <script>
+    // Like button functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const likeButton = document.querySelector('.like-button');
+      const likeCount = document.querySelector('.like-count');
+      let isLiked = false;
+      let count = parseInt(likeCount.textContent) || 0;
+
+      likeButton.addEventListener('click', function() {
+        isLiked = !isLiked;
+        likeButton.setAttribute('aria-pressed', isLiked);
+        likeButton.classList.toggle('liked', isLiked);
+        count = isLiked ? count + 1 : count - 1;
+        likeCount.textContent = count;
+
+        // Add a small animation
+        likeCount.style.transform = 'scale(1.2)';
+        setTimeout(() => {
+          likeCount.style.transform = 'scale(1)';
+        }, 150);
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
